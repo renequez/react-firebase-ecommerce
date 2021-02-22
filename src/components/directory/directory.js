@@ -10,7 +10,7 @@ const Directory = () => {
 	return (
 		<div className='directory-menu'>
 			{sections.map((section) => {
-				console.log(section);
+				// console.log(section);
 				const { id } = section;
 				return <MenuItem key={id} {...section} />;
 			})}
