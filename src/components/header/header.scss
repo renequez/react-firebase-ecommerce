@@ -3,7 +3,7 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 10px;
+	// margin-bottom: 5px;
 
 	.logo-container {
 		height: 100%;
@@ -12,20 +12,35 @@
 
 		.logo {
 			height: 80%;
+			padding-left: 5px;
 		}
 	}
 
 	.options {
-		width: 50%;
+		width: 70%;
 		height: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
 
+		.option-user {
+			padding-left: 10px;
+		}
+
 		.option {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
 			padding: 20px 10px 10px;
 			opacity: initial;
 			transition: 0.5s;
+			cursor: pointer;
+
+			.option-avatar {
+				height: 30px;
+				border-radius: 50%;
+				margin-top: 4px;
+			}
 
 			&:hover {
 				opacity: 0.2;
