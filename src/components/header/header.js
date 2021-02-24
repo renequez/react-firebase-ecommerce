@@ -20,11 +20,9 @@ const Header = ({ currentUser }) => {
 				{currentUser ? (
 					<>
 						<div className='option'>
-							<img
-								className='option-avatar'
-								src={currentUser.photoURL}
-								alt='User Avatar'
-							/>
+							{currentUser.photoURL ? (
+								<img className='option-avatar' src={currentUser.photoURL} />
+							) : null}
 							<div className='option-user'>{currentUser.displayName}</div>
 						</div>
 						<div className='option' onClick={() => auth.signOut()}>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { auth } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import HomePage from './pages/homepage/homepage';
 import ShopPage from './pages/shop/shop';
@@ -13,11 +13,23 @@ function App() {
 	const [currentUser, setCurrentUser] = useState(null);
 
 	useEffect(() => {
-		auth.onAuthStateChanged((user) => {
-			setCurrentUser(user);
-			console.log(user);
+		auth.onAuthStateChanged(async (authUser) => {
+			if (authUser) {
+				const userRef = await createUserProfileDocument(authUser);
+
+				userRef.onSnapshot((snapshot) => {
+					setCurrentUser({
+						id: snapshot.id,
+						...snapshot.data(),
+					});
+				});
+			} else {
+				setCurrentUser(authUser);
+			}
 		});
 	}, []);
+
+	console.log(currentUser);
 
 	return (
 		<Router>
