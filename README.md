@@ -1,3 +1,7 @@
+# crown-clothing
+
+Part of [Zero to Mastery's Complete React Developer](https://academy.zerotomastery.io/p/complete-react-developer-redux-hooks-graphql-zero-to-mastery) course.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
